@@ -97,7 +97,8 @@ namespace Weathernews.Sensor
                 Stop();
                 bluetoothLEAdvertisementWatcher = null;
             }
-            GC.SuppressFinalize(this); // ガベージコレクターによる二重解放を防ぐ
+            GC.SuppressFinalize(this); //こうしないと後で参照するデータも消える(Disposeのタイミングによる)
+            GC.Collect();//なんかうまく切断されないことがあるため
         }
     }
 }
