@@ -26,6 +26,7 @@ namespace WxBeaconApp
                 textBlock.Text = latest.ToString();
             });
             beacon.Dispose();
+            wxBeacon2Watcher.Dispose();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

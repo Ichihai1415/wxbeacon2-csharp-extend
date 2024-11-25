@@ -88,10 +88,16 @@ namespace Weathernews.Sensor
         /// <summary>
         /// WxBeacon2Watcherのインスタンスを破棄します
         /// </summary>
+        /// <remarks>ChatGPTを使用し適切な破棄ができるようにしました</remarks>
         public void Dispose()
         {
-            Stop();
+            if (bluetoothLEAdvertisementWatcher != null)
+            {
+                bluetoothLEAdvertisementWatcher.Received -= BluetoothLEAdvertisementWatcher_Received;
+                Stop();
+                bluetoothLEAdvertisementWatcher = null;
+            }
+            GC.SuppressFinalize(this); // ガベージコレクターによる二重解放を防ぐ
         }
-
     }
 }
