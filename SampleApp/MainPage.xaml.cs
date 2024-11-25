@@ -26,16 +26,22 @@ namespace WxBeaconApp
                 textBlock.Text = latest.ToString();
             });
             beacon.Dispose();
-            wxBeacon2Watcher.Dispose();
+            wxBeacon2Watcher.Dispose();//すぐ閉じる
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                textBlock.Text += "\ndisconnected";
+            });
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            textBlock.Text = "searching...";
             wxBeacon2Watcher.Start();
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
+            textBlock.Text = "exiting...";
             wxBeacon2Watcher.Stop();
         }
     }
