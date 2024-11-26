@@ -127,17 +127,17 @@ namespace Weathernews.Sensor
         public override string ToString()
         {
             return new StringBuilder()
-                .Append("{")
-                .Append(" Temperature = ").Append(Temperature).Append(", ")
-                .Append(" Humidity = ").Append(Humidity).Append(", ")
-                .Append(" Pressure = ").Append(Pressure).Append(", ")
-                .Append(" Illuminance = ").Append(Illuminance).Append(", ")
-                .Append(" UvIndex = ").Append(UvIndex).Append(", ")
-                .Append(" Noise = ").Append(Noise).Append(", ")
-                .Append(" DiscomfortIndex = ").Append(DiscomfortIndex).Append(", ")
-                .Append(" Wgbt = ").Append(Wgbt).Append(", ")
-                .Append(" BatteryVoltage = ").Append(BatteryVoltage)
-                .Append("}")
+                .Append("{ ")
+                .Append("\"Temperature\" : ").Append(Temperature).Append(", ")
+                .Append("\"Humidity\" : ").Append(Humidity).Append(", ")
+                .Append("\"Pressure\" : ").Append(Pressure).Append(", ")
+                .Append("\"Illuminance\" : ").Append(Illuminance).Append(", ")
+                .Append("\"UvIndex\" : ").Append(UvIndex).Append(", ")
+                .Append("\"Noise\" : ").Append(Noise).Append(", ")
+                .Append("\"DiscomfortIndex\" : ").Append(DiscomfortIndex).Append(", ")
+                .Append("\"Wgbt\" : ").Append(Wgbt).Append(", ")
+                .Append("\"BatteryVoltage\" : ").Append(BatteryVoltage)
+                .Append(" }")
                 .ToString();
         }
     }
